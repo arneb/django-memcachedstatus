@@ -1,5 +1,4 @@
 import datetime, re
-from django.http import Http404
 from django.conf import settings
 from django.shortcuts import render_to_response
 from django.views.generic.simple import direct_to_template
