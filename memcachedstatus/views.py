@@ -29,7 +29,10 @@ def cache_status(request):
 
     host = memcache._Host(MEMCACHE.group(1))
     host.connect()
-    host.send_cmd("stats")
+    try:
+        host.send_cmd("stats")
+    except AttributeError:
+        return direct_to_template(request, 'memcachedstatus/cache_status.html', {'error': _(u'Memcached not running')})
 
     class Stats:
         pass
@@ -53,9 +56,11 @@ def cache_status(request):
         setattr(stats, key, value)
 
     host.close_socket()
-
-    context = {'stats': stats, 
+    if stats.cmd_get != 0:
+        context = {'stats': stats, 
                'hit_rate': 100 * stats.get_hits / stats.cmd_get,}
+    else:
+        context = {'stats': stats}
                
     return direct_to_template(request, 'memcachedstatus/cache_status.html', context)
 
