@@ -23,19 +23,19 @@
 			</thead>
 			<tbody>
 					<tr class="row1">
-						<th>Memory usage</th>
+						<th>Memory Usage</th>
 						<td>{{ stats.bytes|filesizeformat }}</td>
 					</tr>
 					<tr class="row2">
-						<th>Keys in cache</th>
+						<th>Keys in Cache</th>
 						<td>{{ stats.curr_items }} of {{ stats.total_items }}</td>
 					</tr>
 					<tr class="row1">
-						<th>Cache hits</th>
+						<th>Cache Hits</th>
 						<td><strong>{{ hit_rate }}%</strong> - {{ stats.get_hits }} of {{ stats.cmd_get }}</td>
 					</tr>
 					<tr class="row2">
-						<th>Cache traffic</th>
+						<th>Cache Traffic</th>
 						<td>{{ stats.bytes_read|filesizeformat }} in, {{ stats.bytes_written|filesizeformat }} out</td>
 					</tr>
 					<tr class="row1">
@@ -43,11 +43,11 @@
 						<td>{{ stats.uptime }}</td>
 					</tr>
 					<tr class="row2">
-						<th>Cache connections</th>
+						<th>Cache Connections</th>
 						<td>{{ stats.curr_connections }} (total: {{ stats.total_connections }})</td>
 					</tr>
 					<tr class="row1">
-						<th>Cache cpu usage</th>
+						<th>Cache CPU Usage</th>
 						<td>{{ stats.rusage_user }} user, {{ stats.rusage_system }} system</td>
 					</tr>
 					<tr class="row2">
@@ -55,7 +55,7 @@
 						<td>{{ stats.pid }}</td>
 					</tr>
 				 	<tr class="row1">
-						<th>Cache version</th>
+						<th>Cache Version</th>
 						<td>{{ stats.version }}</td>
 					</tr>
 			</tbody>
